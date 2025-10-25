@@ -21,7 +21,7 @@ export class CreateProductDto {
   @IsString()
   @IsUrl()
   image: string;
-  
+
   @ApiProperty({ example: 1 })
   @IsNumber()
   minWorkingHours: number;
@@ -29,7 +29,7 @@ export class CreateProductDto {
   @ApiProperty({ example: 100 })
   @IsNumber()
   priceHourly: number;
-  
+
   @ApiProperty({ example: 1000 })
   @IsNumber()
   priceDaily: number;

@@ -101,10 +101,8 @@ export class OrderService {
               }
 
               const toolPrice =
-                toolRecord.price * orderProduct.meausureCount * 0.5; // 50% chegirma
+                toolRecord.price * orderProduct.meausureCount * 0.5;
               subtotal += toolPrice * tool.count;
-
-              // Asbob miqdori kamaytirilmaydi, shuning uchun tool.update olib tashlanadi
 
               await prisma.orderProductTool.create({
                 data: {

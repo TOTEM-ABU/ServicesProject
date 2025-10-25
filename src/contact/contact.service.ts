@@ -56,7 +56,7 @@ export class ContactService {
         phone = '',
         address = '',
         message = '',
-        sortBy = 'createdAt', 
+        sortBy = 'createdAt',
         sort = 'asc',
         page = 1,
         limit = 10,
