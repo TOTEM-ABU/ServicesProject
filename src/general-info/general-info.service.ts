@@ -6,7 +6,7 @@ import {
 } from '@nestjs/common';
 import { CreateGeneralInfoDto } from './dto/create-general-info.dto';
 import { UpdateGeneralInfoDto } from './dto/update-general-info.dto';
-import { PrismaService } from 'src/tools/prisma/prisma.service';
+import { PrismaService } from '../tools';
 
 @Injectable()
 export class GeneralInfoService {

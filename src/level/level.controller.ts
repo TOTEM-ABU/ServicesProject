@@ -11,15 +11,13 @@ import {
   Res,
   HttpStatus,
 } from '@nestjs/common';
+import { ApiQuery } from '@nestjs/swagger';
+import { Response } from 'express';
 import { LevelService } from './level.service';
 import { CreateLevelDto } from './dto/create-level.dto';
 import { UpdateLevelDto } from './dto/update-level.dto';
-import { ApiQuery } from '@nestjs/swagger';
-import { RoleType } from '@prisma/client';
-import { Roles } from 'src/tools/decorators/roles.decorators';
-import { RoleGuard } from 'src/tools/guards/role/role.guard';
-import { AuthGuard } from 'src/tools/guards/auth/auth.guard';
-import { Response } from 'express';
+import { RoleType } from '../generated/prisma/enums';
+import { Roles, RoleGuard, AuthGuard } from '../tools';
 
 @Controller('level')
 export class LevelController {

@@ -5,10 +5,10 @@ import {
   BadRequestException,
   InternalServerErrorException,
 } from '@nestjs/common';
+import Prisma from '@prisma/client';
 import { CreateSizeDto } from './dto/create-size.dto';
 import { UpdateSizeDto } from './dto/update-size.dto';
-import { PrismaService } from 'src/tools/prisma/prisma.service';
-import { Prisma } from '@prisma/client';
+import { PrismaService } from '../tools';
 
 @Injectable()
 export class SizeService {
@@ -63,19 +63,16 @@ export class SizeService {
               {
                 name_uz: {
                   contains: search,
-                  mode: Prisma.QueryMode.insensitive,
                 },
               },
               {
                 name_ru: {
                   contains: search,
-                  mode: Prisma.QueryMode.insensitive,
                 },
               },
               {
                 name_en: {
                   contains: search,
-                  mode: Prisma.QueryMode.insensitive,
                 },
               },
             ],

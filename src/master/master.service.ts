@@ -8,7 +8,7 @@ import {
 } from '@nestjs/common';
 import { CreateMasterDto } from './dto/create-master.dto';
 import { UpdateMasterDto } from './dto/update-master.dto';
-import { PrismaService } from 'src/tools/prisma/prisma.service';
+import { PrismaService } from '../tools';
 import { MarkStarDto } from './dto/master-start.dto';
 import * as ExcelJS from 'exceljs';
 
@@ -94,7 +94,6 @@ export class MasterService {
               masterId: master.id,
               levelId: level.levelId,
             })),
-            skipDuplicates: true,
           });
         }
 
@@ -104,7 +103,6 @@ export class MasterService {
               masterId: master.id,
               productId: product.productId,
             })),
-            skipDuplicates: true,
           });
         }
 
@@ -142,10 +140,10 @@ export class MasterService {
     try {
       const masters = await this.prisma.master.findMany({
         where: {
-          name: name ? { contains: name, mode: 'insensitive' } : undefined,
-          phone: phone ? { contains: phone, mode: 'insensitive' } : undefined,
+          name: name ? { contains: name } : undefined,
+          phone: phone ? { contains: phone } : undefined,
           passportImage: passportImage
-            ? { contains: passportImage, mode: 'insensitive' }
+            ? { contains: passportImage }
             : undefined,
           year: year ? new Date(year) : undefined,
           experience: experience ? Number(experience) : undefined,
@@ -272,7 +270,6 @@ export class MasterService {
               masterId: master.id,
               levelId: level.levelId,
             })),
-            skipDuplicates: true,
           });
         }
 
@@ -285,7 +282,6 @@ export class MasterService {
               masterId: master.id,
               productId: product.productId,
             })),
-            skipDuplicates: true,
           });
         }
         return result;

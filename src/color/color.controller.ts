@@ -10,15 +10,13 @@ import {
   UseGuards,
   Req,
 } from '@nestjs/common';
-import { ApiQuery } from '@nestjs/swagger';
-import { Roles } from 'src/tools/decorators/roles.decorators';
-import { RoleType } from '@prisma/client';
-import { RoleGuard } from 'src/tools/guards/role/role.guard';
-import { AuthGuard } from 'src/tools/guards/auth/auth.guard';
 import { Request } from 'express';
+import { ApiQuery } from '@nestjs/swagger';
 import { ColorService } from './color.service';
 import { UpdateColorDto } from './dto/update-color.dto';
 import { CreateColorDto } from './dto/create-color.dto';
+import { RoleType } from '../generated/prisma/enums';
+import { Roles, RoleGuard, AuthGuard } from '../tools';
 
 @Controller('color')
 export class ColorController {

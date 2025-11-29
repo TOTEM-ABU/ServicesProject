@@ -13,10 +13,8 @@ import { ApiTags, ApiQuery } from '@nestjs/swagger';
 import { PartnerService } from './partner.service';
 import { CreatePartnerDto } from './dto/create-partner.dto';
 import { UpdatePartnerDto } from './dto/update-partner.dto';
-import { RoleType } from '@prisma/client';
-import { Roles } from 'src/tools/decorators/roles.decorators';
-import { RoleGuard } from 'src/tools/guards/role/role.guard';
-import { AuthGuard } from 'src/tools/guards/auth/auth.guard';
+import { RoleType } from '../generated/prisma/enums';
+import { Roles, RoleGuard, AuthGuard } from '../tools';
 
 @ApiTags('Partner')
 @Controller('partner')

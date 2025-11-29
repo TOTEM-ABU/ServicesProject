@@ -12,22 +12,20 @@ import {
   HttpStatus,
   Res,
 } from '@nestjs/common';
+import type { Response } from 'express';
+import type { Request } from 'express';
+import { ApiQuery } from '@nestjs/swagger';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { LoginUserDto } from './dto/login-user.dto';
 import { RefreshTokenDto } from './dto/refresh-token.dto';
-import { Request } from 'express';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { ApiQuery } from '@nestjs/swagger';
 import { CreateAdminDto } from './dto/create-admin.dto';
 import { VerifyOtpDto } from './dto/verify-otp';
 import { ResendOtpDto } from './dto/resend-otp-.dto';
-import { AuthGuard } from 'src/tools/guards/auth/auth.guard';
 import { UpdatePasswordDto } from './dto/update-password';
-import { Roles } from 'src/tools/decorators/roles.decorators';
-import { RoleType } from '@prisma/client';
-import { RoleGuard } from 'src/tools/guards/role/role.guard';
-import { Response } from 'express';
+import { RoleType } from '../generated/prisma/enums';
+import { Roles, RoleGuard, AuthGuard } from '../tools';
 
 @Controller('users')
 export class UserController {

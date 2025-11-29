@@ -1,10 +1,8 @@
 import { Controller, Get, Req, UseGuards } from '@nestjs/common';
 import { DashboardService } from './dashboard.service';
 import { Request } from 'express';
-import { AuthGuard } from 'src/tools/guards/auth/auth.guard';
-import { RoleGuard } from 'src/tools/guards/role/role.guard';
-import { Roles } from 'src/tools/decorators/roles.decorators';
-import { RoleType } from '@prisma/client';
+import { RoleType } from '../generated/prisma/enums';
+import { Roles, RoleGuard, AuthGuard } from '../tools';
 
 @Controller('dashboard')
 export class DashboardController {

@@ -10,15 +10,13 @@ import {
   UseGuards,
   Req,
 } from '@nestjs/common';
+import { Request } from 'express';
+import { ApiQuery } from '@nestjs/swagger';
 import { SizeService } from './size.service';
 import { CreateSizeDto } from './dto/create-size.dto';
 import { UpdateSizeDto } from './dto/update-size.dto';
-import { ApiQuery } from '@nestjs/swagger';
-import { Roles } from 'src/tools/decorators/roles.decorators';
-import { RoleGuard } from 'src/tools/guards/role/role.guard';
-import { AuthGuard } from 'src/tools/guards/auth/auth.guard';
-import { RoleType } from '@prisma/client';
-import { Request } from 'express';
+import { RoleType } from '../generated/prisma/enums';
+import { Roles, RoleGuard, AuthGuard } from '../tools';
 
 @Controller('size')
 export class SizeController {

@@ -8,7 +8,7 @@ import { JwtService } from '@nestjs/jwt';
 import { Request } from 'express';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+class AuthGuard implements CanActivate {
   constructor(private readonly jwt: JwtService) {}
   canActivate(context: ExecutionContext): boolean {
     let request: Request = context.switchToHttp().getRequest();
@@ -26,3 +26,5 @@ export class AuthGuard implements CanActivate {
     }
   }
 }
+
+export default AuthGuard;

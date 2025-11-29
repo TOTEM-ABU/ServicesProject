@@ -7,20 +7,19 @@ import {
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
-import { PrismaService } from 'src/tools/prisma/prisma.service';
-import { JwtService } from '@nestjs/jwt';
-import { MailService } from 'src/tools/mail/mail.service';
-import { CreateUserDto } from './dto/create-user.dto';
 import * as bcrypt from 'bcrypt';
+import { Request } from 'express';
+import * as ExcelJS from 'exceljs';
+import { JwtService } from '@nestjs/jwt';
+import { CreateUserDto } from './dto/create-user.dto';
 import { CreateAdminDto } from './dto/create-admin.dto';
 import { LoginUserDto } from './dto/login-user.dto';
-import { Request } from 'express';
 import { VerifyOtpDto } from './dto/verify-otp';
 import { ResendOtpDto } from './dto/resend-otp-.dto';
 import { UpdatePasswordDto } from './dto/update-password';
 import { RefreshTokenDto } from './dto/refresh-token.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import * as ExcelJS from 'exceljs';
+import { MailService, PrismaService } from 'src/tools';
 
 @Injectable()
 export class UserService {

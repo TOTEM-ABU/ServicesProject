@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { PaymentType } from '@prisma/client';
+import { PaymentType } from '../../generated/prisma/enums';
 import { Type } from 'class-transformer';
 import {
   IsBoolean,

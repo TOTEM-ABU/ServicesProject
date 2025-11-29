@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { RoleType } from '@prisma/client';
+import { RoleType } from '../../generated/prisma/enums';
 import {
   IsEmail,
   IsPhoneNumber,

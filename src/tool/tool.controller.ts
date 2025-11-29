@@ -12,15 +12,13 @@ import {
   Res,
   HttpStatus,
 } from '@nestjs/common';
+import { ApiQuery } from '@nestjs/swagger';
+import { Request, Response } from 'express';
 import { ToolService } from './tool.service';
 import { CreateToolDto } from './dto/create-tool.dto';
 import { UpdateToolDto } from './dto/update-tool.dto';
-import { ApiQuery } from '@nestjs/swagger';
-import { Roles } from 'src/tools/decorators/roles.decorators';
-import { RoleType } from '@prisma/client';
-import { RoleGuard } from 'src/tools/guards/role/role.guard';
-import { AuthGuard } from 'src/tools/guards/auth/auth.guard';
-import { Request, Response } from 'express';
+import { RoleType } from '../generated/prisma/enums';
+import { Roles, RoleGuard, AuthGuard } from '../tools';
 
 @Controller('tool')
 export class ToolController {

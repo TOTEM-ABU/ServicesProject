@@ -4,9 +4,9 @@ import {
   HttpException,
   HttpStatus,
 } from '@nestjs/common';
-import { Prisma } from '@prisma/client';
+import Prisma from '@prisma/client';
 import { UpdatePartnerDto } from './dto/update-partner.dto';
-import { PrismaService } from 'src/tools/prisma/prisma.service';
+import { PrismaService } from '../tools';
 
 @Injectable()
 export class PartnerService {
@@ -50,10 +50,9 @@ export class PartnerService {
         limit = 10,
       } = query;
 
-      const where: Prisma.PartnerWhereInput = {
+      const where = {
         name: {
           contains: name,
-          mode: Prisma.QueryMode.insensitive,
         },
       };
 
@@ -87,7 +86,7 @@ export class PartnerService {
   }
 
   async findOne(id: string) {
-    const existingregion = await this.prisma.region.findUnique({
+    const existingregion = await this.prisma.partner.findUnique({
       where: { id },
     });
 

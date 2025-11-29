@@ -1,7 +1,7 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
-import { PrismaService } from 'src/tools/prisma/prisma.service';
 import { CreateColorDto } from './dto/create-color.dto';
 import { UpdateColorDto } from './dto/update-color.dto';
+import { PrismaService } from '../tools';
 
 @Injectable()
 export class ColorService {
@@ -62,15 +62,12 @@ export class ColorService {
         where: {
           name_uz: {
             contains: search,
-            mode: 'insensitive',
           },
           name_ru: {
             contains: search,
-            mode: 'insensitive',
           },
           name_en: {
             contains: search,
-            mode: 'insensitive',
           },
         },
         include: {
@@ -90,15 +87,12 @@ export class ColorService {
         where: {
           name_uz: {
             contains: search,
-            mode: 'insensitive',
           },
           name_ru: {
             contains: search,
-            mode: 'insensitive',
           },
           name_en: {
             contains: search,
-            mode: 'insensitive',
           },
         },
       });

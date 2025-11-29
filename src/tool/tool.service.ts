@@ -7,7 +7,7 @@ import {
 } from '@nestjs/common';
 import { CreateToolDto } from './dto/create-tool.dto';
 import { UpdateToolDto } from './dto/update-tool.dto';
-import { PrismaService } from 'src/tools/prisma/prisma.service';
+import { PrismaService } from '../tools';
 import * as ExcelJS from 'exceljs';
 
 @Injectable()
@@ -95,7 +95,6 @@ export class ToolService {
             toolId: tool.id,
             brandId: brand.brandId,
           })),
-          skipDuplicates: true,
         });
       }
 
@@ -105,7 +104,6 @@ export class ToolService {
             toolId: tool.id,
             sizeId: size.sizeId,
           })),
-          skipDuplicates: true,
         });
       }
 
@@ -115,7 +113,6 @@ export class ToolService {
             toolId: tool.id,
             colorId: color.colorId,
           })),
-          skipDuplicates: true,
         });
       }
 

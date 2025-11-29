@@ -9,14 +9,12 @@ import {
   Query,
   UseGuards,
 } from '@nestjs/common';
+import { ApiQuery, ApiTags } from '@nestjs/swagger';
 import { GeneralInfoService } from './general-info.service';
 import { CreateGeneralInfoDto } from './dto/create-general-info.dto';
 import { UpdateGeneralInfoDto } from './dto/update-general-info.dto';
-import { ApiQuery, ApiTags } from '@nestjs/swagger';
-import { RoleType } from '@prisma/client';
-import { Roles } from 'src/tools/decorators/roles.decorators';
-import { RoleGuard } from 'src/tools/guards/role/role.guard';
-import { AuthGuard } from 'src/tools/guards/auth/auth.guard';
+import { RoleType } from '../generated/prisma/enums';
+import { Roles, RoleGuard, AuthGuard } from '../tools';
 
 @ApiTags('GeneralInfo')
 @Controller('general-info')

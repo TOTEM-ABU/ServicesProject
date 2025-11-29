@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { LevelType } from '@prisma/client';
+import { LevelType } from '../../generated/prisma/enums';
 import { IsEnum, IsNumber, IsString } from 'class-validator';
 
 export class CreateLevelDto {

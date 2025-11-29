@@ -6,8 +6,7 @@ import {
 } from '@nestjs/common';
 import { CreateShowcaseDto } from './dto/create-showcase.dto';
 import { UpdateShowcaseDto } from './dto/update-showcase.dto';
-import { Prisma } from '@prisma/client';
-import { PrismaService } from 'src/tools/prisma/prisma.service';
+import { PrismaService } from '../tools';
 
 @Injectable()
 export class ShowcaseService {
@@ -53,14 +52,12 @@ export class ShowcaseService {
         limit = 10,
       } = query;
 
-      const where: Prisma.ShowcaseWhereInput = {
+      const where = {
         name: {
           contains: name,
-          mode: Prisma.QueryMode.insensitive,
         },
         description: {
           contains: description,
-          mode: Prisma.QueryMode.insensitive,
         },
       };
 

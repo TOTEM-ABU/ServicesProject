@@ -10,15 +10,13 @@ import {
   UseGuards,
   Req,
 } from '@nestjs/common';
+import { ApiQuery } from '@nestjs/swagger';
 import { OrderService } from './order.service';
 import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateOrderDto } from './dto/update-order.dto';
-import { ApiQuery } from '@nestjs/swagger';
-import { AuthGuard } from 'src/tools/guards/auth/auth.guard';
-import { Roles } from 'src/tools/decorators/roles.decorators';
-import { RoleType } from '@prisma/client';
-import { RoleGuard } from 'src/tools/guards/role/role.guard';
 import { AddMastersToOrderDto } from './dto/add-masters.dto';
+import { RoleType } from '../generated/prisma/enums';
+import { Roles, RoleGuard, AuthGuard } from '../tools';
 
 @Controller('order')
 export class OrderController {

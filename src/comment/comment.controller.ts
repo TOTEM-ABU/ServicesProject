@@ -10,15 +10,12 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
+import { ApiQuery } from '@nestjs/swagger';
 import { CommentService } from './comment.service';
 import { CreateCommentDto } from './dto/create-comment.dto';
 import { UpdateCommentDto } from './dto/update-comment.dto';
-import { ApiQuery } from '@nestjs/swagger';
-import { Request } from 'express';
-import { AuthGuard } from 'src/tools/guards/auth/auth.guard';
-import { RoleType } from '@prisma/client';
-import { RoleGuard } from 'src/tools/guards/role/role.guard';
-import { Roles } from 'src/tools/decorators/roles.decorators';
+import { RoleType } from '../generated/prisma/enums';
+import { Roles, RoleGuard, AuthGuard } from '../tools';
 
 @Controller('comment')
 export class CommentController {

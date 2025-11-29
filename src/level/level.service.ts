@@ -5,11 +5,11 @@ import {
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
+import * as ExcelJS from 'exceljs';
+import { PrismaService } from '../tools';
 import { CreateLevelDto } from './dto/create-level.dto';
 import { UpdateLevelDto } from './dto/update-level.dto';
-import { PrismaService } from 'src/tools/prisma/prisma.service';
-import { LevelType } from '@prisma/client';
-import * as ExcelJS from 'exceljs';
+import { LevelType } from '../generated/prisma/enums';
 
 @Injectable()
 export class LevelService {

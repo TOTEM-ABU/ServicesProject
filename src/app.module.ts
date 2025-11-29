@@ -1,12 +1,13 @@
+import { join } from 'path';
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
+import { ConfigModule } from '@nestjs/config';
 import { ServeStaticModule } from '@nestjs/serve-static';
-import { join } from 'path';
-import { PrismaModule } from './tools/prisma/prisma.module';
-import { MulterController } from './tools/multer/multer.controller';
 import { BrandModule } from './brand/brand.module';
+import { ColorModule } from './color/color.module';
 import { CommentModule } from './comment/comment.module';
 import { ContactModule } from './contact/contact.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 import { FaqModule } from './faq/faq.module';
 import { GeneralInfoModule } from './general-info/general-info.module';
 import { LevelModule } from './level/level.module';
@@ -20,12 +21,14 @@ import { ShowcaseModule } from './showcase/showcase.module';
 import { SizeModule } from './size/size.module';
 import { ToolModule } from './tool/tool.module';
 import { UserModule } from './user/user.module';
-import { DashboardModule } from './dashboard/dashboard.module';
-import { ColorModule } from './color/color.module';
+import { MulterController, PrismaModule } from './tools';
 
 @Module({
   imports: [
     PrismaModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     JwtModule.register({
       global: true,
       secret: process.env.JWT_SECRET,
@@ -36,8 +39,10 @@ import { ColorModule } from './color/color.module';
       serveRoot: '/uploads',
     }),
     BrandModule,
+    ColorModule,
     CommentModule,
     ContactModule,
+    DashboardModule,
     FaqModule,
     GeneralInfoModule,
     LevelModule,
@@ -51,8 +56,6 @@ import { ColorModule } from './color/color.module';
     SizeModule,
     ToolModule,
     UserModule,
-    DashboardModule,
-    ColorModule,
   ],
   controllers: [MulterController],
 })

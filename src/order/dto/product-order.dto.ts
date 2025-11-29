@@ -9,7 +9,7 @@ import {
 } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
-import { MeasureType } from '@prisma/client';
+import { MeasureType } from '../../generated/prisma/enums';
 import { OrderProductToolDto } from './product-tool.dto';
 
 export class OrderProductDto {

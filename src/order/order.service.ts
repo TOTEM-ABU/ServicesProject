@@ -7,8 +7,8 @@ import {
 } from '@nestjs/common';
 import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateOrderDto } from './dto/update-order.dto';
-import { PrismaService } from 'src/tools/prisma/prisma.service';
-import { MeasureType, StatusType } from '@prisma/client';
+import { PrismaService } from '../tools';
+import { MeasureType, StatusType } from '../generated/prisma/enums';
 import { AddMastersToOrderDto } from './dto/add-masters.dto';
 
 @Injectable()
@@ -216,7 +216,6 @@ export class OrderService {
 
       await this.prisma.orderMaster.createMany({
         data: orderMasters,
-        skipDuplicates: true,
       });
 
       await this.prisma.master.updateMany({
